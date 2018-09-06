@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Responsive Boxes Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <div>***</div>
+  <!--Other div that removes margin from top and bottom of group of boxes.-->
+  <div id="boxContainer" class="boxContainer">
+    <!--A box with margin top and right.-->
+    <div class="column columnMargin">
+      <!--cardbox defines the size of the box.-->
+      <div class="cardbox">
+        <!--cardbox-top defines size of top section (image), and centers it.-->
+        <div class="cardbox-top">
+          Startup
+        </div>
+        <!--center-tableMethod-parent uses table method to center both inline and block intems inside the div.
+                    cardbox-body sets fixed height on body section, as well as other formatting (color etc.).-->
+        <div class="cardbox-body">
+          <!--Child and parent divide is needed to make centering with table method work.-->
+          <!--cardbox-body-container just ensures scrolling looks good with margins, if text overflows.-->
+          <div class="cardbox-body-container">
+            <!--cardbox-body-text sets margins on body text.-->
+            <h4 class="cardbox-title">Early Stage</h4>
+            <div class="cardbox-body-text">
+              <!--cardbox-title sets margins on body title.-->
+              <i class="fas fa-check"></i>Wire frames<br>
+              <i class="fas fa-check"></i>Design<br>
+              <i class="fas fa-check"></i>MVP<br>
+            </div>
+            <hr style="align-self: stretch"/>
+            <h4 class="cardbox-title">Price Structure</h4>
+            <div class="cardbox-body-text">
+              <i class="fas fa-chart-line"></i>70% shares<br>
+              <i class="fas fa-dollar-sign"></i> 30% cash
+            </div>
+          </div>
+          <div class="text-center">
+            <a target="_blank" href="#">
+              <button class="buy-button buy-button-grey">Buy Now</button>
+            </a>
+          </div>
+        </div>
+
+        <!--Important: Uses the line-height method for vertical centering.
+                    Footer must be one line of text (not more), for centering to work.-->
+        <div class="cardbox-footer">
+          <a class="clean-link" target="_blank" href="#">More Informatio &gt&gt</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="column columnMargin bestDeal">
+      <div class="cardbox">
+        <div class="cardbox-top">
+          <div class="ribbon"><span>Top Deal</span></div>
+          SME
+        </div>
+        <div class="cardbox-body">
+          <div class="cardbox-body-container">
+            <h4 class="cardbox-title">Small to Medium<br/>Sized Companies
+            </h4>
+            <div class="cardbox-body-text">
+              <i class="fas fa-check"></i>Feature two<br>
+              <i class="fas fa-check"></i>Feature three<br>
+              <i class="fas fa-check"></i>Feature four<br>
+            </div>
+            <!-- <a class="clean-link" target="_blank" href="#">More Information &gt&gt</a> -->
+          </div>
+          <div class="text-center">
+            <a target="_blank" href="#">
+              <button id="shake" class="buy-button">Buy Now</button>
+            </a>
+          </div>
+        </div>
+        <div class="cardbox-footer">
+          <a class="clean-link" target="_blank" href="#">More Information &gt&gt</a>
+        </div>
+      </div>
+    </div>
+    <div class="column columnMargin">
+      <div class="cardbox">
+        <div class="cardbox-top">
+          Enterprise
+        </div>
+        <div class="cardbox-body">
+          <div class="cardbox-body-container">
+            <h4 class="cardbox-title">Established Companies
+            </h4>
+            <div class="cardbox-body-text">
+              <i class="fas fa-check"></i>Feature two<br>
+              <i class="fas fa-check"></i>Feature three<br>
+              <i class="fas fa-check"></i>Feature four<br>
+            </div>
+            <!-- <a class="clean-link" target="_blank" href="#">More Information &gt&gt</a> -->
+          </div>
+          <div class="text-center">
+            <a target="_blank" href="#">
+              <button class="buy-button buy-button-grey">Buy Now</button>
+            </a>
+          </div>
+        </div>
+        <div class="cardbox-footer">
+          <a class="clean-link" target="_blank" href="#">More Information &gt&gt</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>***</div>
+</body>
+
+</html>

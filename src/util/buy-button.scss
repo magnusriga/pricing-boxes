@@ -1,0 +1,34 @@
+$light-green: #79a70a;
+
+.buy-button {
+  position: absolute;
+  bottom: 1rem;
+  left: calc(50% - 6rem);
+  width: 12rem;
+  padding: 0.5rem 0rem;
+  border: 0;
+  border-radius: 30px;
+  background-color: $light-green;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 1px 1px 2px grey;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.buy-button:hover {
+  background-color: orange;
+}
+
+.buy-button-grey {
+  background-color: grey;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+  padding: 0;
+}

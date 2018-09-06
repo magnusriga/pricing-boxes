@@ -1,0 +1,26 @@
+// imports
+@import './util/_responsive-boxes';
+
+$borderColor: #0395d9; // 2px solid
+
+// smarphone (landscape) 499?: each box stretch full width,
+@media (min-width: 576px) {
+    
+}
+
+// tablet: each box stretches full width, but with 10px
+// wrapper of all boxes plus heading: 20px padding on each side
+// wrapper of all boxes: 20px margn on each side
+@media (min-width: 768px) {
+    
+}
+
+// desktop/laptop: boxes tight next to each other
+@media (min-width: 992px) {
+    
+}
+
+// large desktops: boxes split, next to each other
+@media (min-width: 1200px) {
+    
+}

@@ -1,0 +1,210 @@
+/* RESPONSIVE BOXES: CSS TEMPLATE */
+/* ============================== */
+/* ============================== */
+
+/* NOTES */
+/* ===== */
+/* - Each column (box) is "display: inline-block;",
+     which has a default margin-right: 4px.
+     This has been ignored below.
+     - Width of box overall is set in cardbox.
+     If changing it, remember to adjust size of divs inside as well.
+     - When a positive margin is introduced on each box (column class),
+     elements to the top and right are pushed away from border.
+     - Thus, we create a negative margin on the outer div, in order to pull
+     surrounding elements closer, which counters the inner margin.
+     Unfortunately, this means that the content is pulled out on the
+     right hand side, causing overflow. To hide that, we apply
+     "overflow-x: hidden" to the outer div.
+     - Don't put other elements inside the negativeMargin div.
+     It will not display correctly, because the positive margin 
+     of previous box will push it away, then the negative margin
+     of the ancestor div will drag other elements on top of it.
+*/
+
+
+/* VERTICAL AND HORIZONTAL CENTERING */
+/* (Table method) */
+/* ================================ */
+
+/* Table method: For centering inline and block-level elements inside block-level elements. */
+/* Does not work on IE10 and down. */
+/* Setting html and body to 100% is apparently needed in certain cases.*/
+html, body {
+    /* height: 100%; */
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+}
+.center-tableMethod-parent {
+    display: table;
+}
+.center-tableMethod-parent > .center-tableMethod-child {
+    display: table-cell;
+    vertical-align: middle;
+    /*To center horizontally:*/
+    /*text-align for inline elements,
+    margin:auto for block-level elements.*/
+    /*    width:100%;
+        text-align: center;
+        margin: 0 auto;*/
+}
+
+/* TOP LEVEL DIV, SURROUNDING ALL THE REST */
+/* (border-box in all subclasses ensures hight/width includes margins/padding and border.) */
+/* ================================================ */
+.boxContainer {
+    overflow-x: hidden;
+    /* padding: 0 1rem; */
+}
+/* @media screen and (min-width: 40em) {
+    .boxContainer {
+        padding: 0 3rem;
+    }
+} */
+
+/* SPACING */
+/* (Ensures spacing between, but not on top/bottom) */
+/* ================================================ */
+
+/*Negative margin to adjust for the top/right margin on
+the boxes within (see columnMargin).
+Should be rem, to avoid inheritance issues.
+width: 100% ensures the div does not overflow past the width of the pasge,
+due to the added margins. The inherited box-sizing: border box ensures
+That all margins, padding and borders are part of the width/height specified.
+That makes it easier to calculate.
+*/
+.negativeMargin {
+    margin-top: -1rem;
+    margin-right: -1rem;
+    text-align: center;
+}
+@media screen and (min-width: 40em) {
+    .negativeMargin {
+        margin-top: -3rem;
+        margin-right: -3rem;
+    }
+}
+/*Columns with margin in between each one,
+both horizontally and when it stacks vertically.
+As seen, it adds some more space when the viewport is larger.
+The right/top margin are removed from right and bottom of the entire block
+by wrapping the columns in a div with negative margin (see below).
+vertical-align: top in case there are columns of text of different heights.*/
+.column {
+    display: inline-block;
+    vertical-align: top;
+}
+.columnMargin {
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+@media screen and (min-width: 40em) {
+    .columnMargin {
+        margin-top: 3rem;
+        margin-right: 3rem;
+    }
+}
+
+
+/* THE WHOLE BOX (top, body, footer) */
+/* =================================== */
+
+/*Custom box design.
+Use px as images has to have a width/height.
+When we cannot show the box at full width,
+make it smaller.*/
+.cardbox {
+    width: 250px;
+    height: 400px;
+}
+@media screen and (min-width: 48em) {
+    .cardbox {
+        width: 300px;
+        height: 400px;
+    }
+}
+
+
+/* TOP SECTION (image) */
+/* =================== */
+
+/*Images should not be larger than:
+width: 300px (250px to be safe),
+height: 400*0.4 = 160px (150px to be safe).
+We have a fail-safe mechanism below, in case
+image is larger than box.
+It is OK that they are smaller,
+as it will just be centered in the box
+(thus, should have transparent background).
+*/
+.cardbox-top {
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    background-color: #4f6173;
+    width: 100%;
+}
+/*Make sure the image is never bigger than the parent div.
+Note: This is overruled by the "style=height/width" in the <img>.*/
+.cardbox-top img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* BODY SECTION */
+/* ============ */
+
+.cardbox-body {
+    height: 200px;
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 0 20px;
+    text-align: left;
+}
+/*The padding top/bottom of the parent, combined with
+"overflow: hidden" on the child, means if text overflows
+it will do so without touching the edges of the parent.*/
+.cardbox-body-container {
+    overflow: hidden;
+}
+.cardbox-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    /* Same as bootstrap's reboot.css.*/
+    margin-top: 0;
+    margin-bottom: .75rem; /* 0.5 in bootstrap.*/
+}
+.cardbox-body-text {
+    margin-bottom: 0.75rem;
+}
+
+/* Same as bootstrap's text-emphasis.scss and reboot.scss.*/
+.clean-link {
+    color: #f8f9fa!important;
+    text-decoration: none;
+    background-color: transparent;
+    text-decoration-skip: objects;
+    -webkit-text-decoration-skip: objects;
+}
+.clean-link:hover {
+    color: #dae0e5!important;
+    text-decoration: underline;
+}
+
+/* FOOTER SECTION */
+/* ============== */
+
+/*veritcal centering achieved by setting line-height equal to div height
+(only works for one line of text).*/
+.cardbox-footer {
+    height: 40px;
+    line-height: 40px;
+    font-size: 80%;
+    color: #868e96;
+    background-color: #272727;
+    padding: 0 20px; /*padding: height(t/b) width(l/r) */
+}
