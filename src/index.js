@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     startShaking(btn, 'shake', 1000, 3000);
   });
 
-  if (process.env.NODE_ENV === 'development') {
-    console.log('Looks like we are in development mode!');
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.log('Looks like we are in development mode!');
+  // }
 
-  if (process.env.NODE_ENV === 'production') {
-    console.log('HEREE');
-    console.log('Looks like we are in production mode!');
-  }
+  // if (process.env.NODE_ENV === 'production') {
+  //   console.log('HEREE');
+  //   console.log('Looks like we are in production mode!');
+  // }
 });
